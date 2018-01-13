@@ -41,7 +41,7 @@ public class CodedEnumHandler<E> extends BaseTypeHandler<E> {
             Integer value = (Integer) methodGetCode.invoke(parameter);
             ps.setInt(i, value);
         } catch (Exception e) {
-            throw new RuntimeException("Enumeration must have the getCode method", e);
+            throw new RuntimeException("Wrong Enum Handler used.", e);
         }
 
     }
