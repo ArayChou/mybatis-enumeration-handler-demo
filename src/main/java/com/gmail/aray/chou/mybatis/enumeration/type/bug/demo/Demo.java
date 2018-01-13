@@ -36,8 +36,8 @@ public class Demo {
         Configuration configuration = new Configuration(environment);
 
 
-        configuration.getTypeHandlerRegistry().register(BlogStatus.class, handler);
-        configuration.getTypeHandlerRegistry().register(BlogType.class, handler);
+//        configuration.getTypeHandlerRegistry().register(BlogStatus.class, handler);
+//        configuration.getTypeHandlerRegistry().register(BlogType.class, handler);
 
 
         configuration.addMapper(BlogMapper.class);
