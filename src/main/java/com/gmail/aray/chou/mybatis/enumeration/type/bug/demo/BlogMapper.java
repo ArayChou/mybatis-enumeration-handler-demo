@@ -13,16 +13,17 @@ import java.util.List;
  */
 public interface BlogMapper {
     @Insert("insert into blog (id,title,status,type) values (#{id},#{title}," +
-            " #{status}," +
-            " #{type})")
+            " #{status,typeHandler=com.gmail.aray.chou.mybatis.enumeration.type.bug.demo.CodedEnumHandler}," +
+            " #{type,typeHandler=com.gmail.aray.chou.mybatis.enumeration.type.bug.demo.CodedEnumHandler})")
     int insertBlog(Blog blog);
 
-    @Update(" update blog set status=#{status} where type=#{type}")
+    @Update(" update blog set status=#{status, typeHandler=com.gmail.aray.chou.mybatis.enumeration.type.bug.demo.CodedEnumHandler}" +
+            " where type=#{type,typeHandler=com.gmail.aray.chou.mybatis.enumeration.type.bug.demo.CodedEnumHandler}")
     int updateBlog(@Param("status") BlogStatus status, @Param("type") BlogType type);
 
-    @Select("select * from  blog  where type=#{type}")
+    @Select("select * from  blog  where type=#{type,typeHandler=com.gmail.aray.chou.mybatis.enumeration.type.bug.demo.CodedEnumHandler}")
     List<Blog> select(@Param("type") BlogType type);
 
-    @Delete("delete blog where  type=#{type}")
+    @Delete("delete blog where  type=#{type,typeHandler=com.gmail.aray.chou.mybatis.enumeration.type.bug.demo.CodedEnumHandler}")
     int delete(@Param("type") BlogType type);
 }
